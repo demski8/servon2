@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>SERWON - Serwis Komputerowy Naprawa Laptopów Poznań TANIO SZYBKO</title>
+<link href="https://fonts.googleapis.com/css2?family=Lobster&family=Oswald:wght@700&display=swap" rel="stylesheet"/>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  @keyframes blink { 0%,49%{opacity:1} 50%,100%{opacity:0} }
+  @keyframes marquee { from{transform:translateX(100%)} to{transform:translateX(-100%)} }
+  @keyframes pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.05)} }
+
+  body {
+    background-color: #000080;
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40'><text y='30' font-size='28'>💻</text></svg>");
+    font-family: Comic Sans MS, cursive;
+    color: #FFFF00;
+    font-size: 14px;
+  }
+
+  /* HEADER */
+  header {
+    background: linear-gradient(to right, #FF0000, #FF6600, #FFFF00, #00FF00, #0000FF, #FF00FF);
+    padding: 8px;
+    text-align: center;
+    border-bottom: 4px solid yellow;
+  }
+
+  .logo {
+    font-family: 'Lobster', cursive;
+    font-size: 3.2rem;
+    color: #fff;
+    text-shadow: 3px 3px 0 #000, -1px -1px 0 #FF0000;
+    display: block;
+  }
+
+  .logo-sub {
+    font-size: 0.85rem;
+    color: #000;
+    font-weight: bold;
+    letter-spacing: 2px;
+    background: yellow;
+    display: inline-block;
+    padding: 2px 8px;
+    margin-top: 4px;
+  }
+
+  /* NAV */
+  nav {
+    background: #000;
+    padding: 6px 0;
+    text-align: center;
+    border-top: 3px solid lime;
+    border-bottom: 3px solid lime;
+  }
+
+  nav a {
+    color: lime;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin: 0 3px;
+    padding: 4px 8px;
+    border: 2px solid lime;
+    display: inline-block;
+    font-family: Comic Sans MS, cursive;
+    letter-spacing: 1px;
+  }
+  nav a:hover {
+    background: lime;
+    color: #000;
+  }
+
+  /* TICKER */
+  .ticker {
+    background: #000;
+    color: #FF0000;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 5px 0;
+    overflow: hidden;
+    white-space: nowrap;
+    border-bottom: 2px dashed red;
+  }
+  .ticker-inner {
+    display: inline-block;
+    animation: marquee 8s linear infinite;
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 2px;
+  }
+
+  /* HERO */
+  .hero {
+    background: #CC0000;
+    padding: 20px 15px;
+    text-align: center;
+    border: 5px solid yellow;
+    margin: 10px;
+  }
+
+  .hero h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.4rem;
+    color: #FFFF00;
+    text-shadow: 2px 2px 0 #000;
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+
+  .hero-promo {
+    font-size: 1.1rem;
+    color: #fff;
+    animation: blink 0.8s infinite;
+    font-weight: bold;
+    margin: 8px 0;
+  }
+
+  .hero-btn {
+    display: inline-block;
+    background: lime;
+    color: #000;
+    font-size: 1.3rem;
+    font-weight: 900;
+    font-family: 'Oswald', sans-serif;
+    padding: 10px 25px;
+    border: 3px solid #000;
+    text-decoration: none;
+    margin: 10px 5px;
+    letter-spacing: 1px;
+    animation: pulse 1s infinite;
+  }
+
+  .fine-print {
+    font-size: 0.55rem;
+    color: rgba(255,255,255,0.4);
+    margin-top: 5px;
+    line-height: 1.2;
+  }
+
+  /* LAYOUT */
+  .page-wrap {
+    display: flex;
+    gap: 0;
+    margin: 10px;
+  }
+
+  /* SIDEBAR - pełen różności */
+  .sidebar {
+    width: 180px;
+    flex-shrink: 0;
+    background: #006600;
+    border: 3px solid lime;
+    padding: 8px;
+  }
+
+  .sidebar-box {
+    background: #003300;
+    border: 2px dashed lime;
+    padding: 8px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 0.78rem;
+    color: lime;
+  }
+
+  .sidebar-box h3 {
+    font-size: 0.8rem;
+    color: #FFFF00;
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+  }
+
+  .counter {
+    font-size: 2rem;
+    font-family: 'Oswald', sans-serif;
+    color: #FF0000;
+    display: block;
+    animation: blink 1s infinite;
+  }
+
+  .sidebar-img-placeholder {
+    background: #002200;
+    border: 1px solid lime;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    margin-bottom: 8px;
+  }
+
+  .sidebar-link {
+    display: block;
+    color: #FFFF00;
+    text-decoration: underline;
+    font-size: 0.75rem;
+    margin-bottom: 4px;
+    padding: 2px 0;
+  }
+  .sidebar-link:hover { color: lime; }
+
+  /* MAIN CONTENT */
+  .main-content {
+    flex: 1;
+    min-width: 0;
+    background: #000066;
+    border: 3px solid yellow;
+    padding: 12px;
+  }
+
+  /* SEKCJE */
+  .section-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.5rem;
+    color: #FF6600;
+    text-transform: uppercase;
+    border-bottom: 3px double #FF6600;
+    padding-bottom: 4px;
+    margin-bottom: 12px;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 0 #000;
+  }
+
+  /* USŁUGI - tabela zamiast kart */
+  table.services {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    font-size: 0.85rem;
+  }
+  table.services th {
+    background: #FF6600;
+    color: #000;
+    font-family: 'Oswald', sans-serif;
+    padding: 6px 8px;
+    text-align: left;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    border: 2px solid #000;
+  }
+  table.services td {
+    background: #000044;
+    color: #fff;
+    padding: 5px 8px;
+    border: 1px solid #0000AA;
+    vertical-align: top;
+  }
+  table.services tr:nth-child(even) td {
+    background: #000088;
+  }
+  table.services .price {
+    color: lime;
+    font-weight: bold;
+    font-size: 1rem;
+    white-space: nowrap;
+  }
+  table.services td:first-child {
+    color: #FFFF00;
+    font-weight: bold;
+  }
+
+  /* TESTIMONIALS */
+  .testimonials {
+    background: #003300;
+    border: 2px solid lime;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+
+  .testimonial {
+    border-bottom: 1px dashed lime;
+    padding: 6px 0;
+    font-size: 0.82rem;
+    color: #cfc;
+  }
+  .testimonial:last-child { border-bottom: none; }
+  .testimonial .author {
+    color: lime;
+    font-weight: bold;
+    font-size: 0.78rem;
+    display: block;
+    margin-top: 2px;
+  }
+  .stars { color: #FFFF00; letter-spacing: -2px; }
+
+  /* JAK DZIAŁAMY */
+  .steps-chaos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+  .step-item {
+    background: #004400;
+    border: 2px solid #00AA00;
+    padding: 8px;
+    font-size: 0.8rem;
+    color: #cfc;
+  }
+  .step-item h4 {
+    font-family: 'Oswald', sans-serif;
+    color: lime;
+    font-size: 0.9rem;
+    margin-bottom: 4px;
+    letter-spacing: 1px;
+  }
+  /* Celowo brak numeracji / logicznej kolejności wizualnej */
+  .step-item:nth-child(1) { grid-column: 2; }
+  .step-item:nth-child(2) { grid-column: 1; grid-row: 2; }
+  .step-item:nth-child(3) { grid-column: 2; grid-row: 2; }
+  .step-item:nth-child(4) { grid-column: 1; grid-row: 1; }
+
+  /* FORMULARZ */
+  .contact-form {
+    background: #220000;
+    border: 3px solid #FF0000;
+    padding: 12px;
+    margin-bottom: 20px;
+  }
+  .contact-form h3 {
+    font-family: 'Oswald', sans-serif;
+    color: #FF6600;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+  }
+
+  /* Wszystkie pola wyglądają tak samo, brak wizualnej hierarchii */
+  .contact-form input,
+  .contact-form textarea,
+  .contact-form select {
+    display: block;
+    width: 100%;
+    background: #000;
+    color: lime;
+    border: 1px solid #444;
+    padding: 5px;
+    font-family: Comic Sans MS, cursive;
+    font-size: 0.8rem;
+    margin-bottom: 4px;
+    /* brak wyróżnienia fokusu */
+    outline: none;
+  }
+  .contact-form input::placeholder { color: #333; }
+
+  /* Etykiety wyglądają jak zwykły tekst */
+  .contact-form .flabel {
+    font-size: 0.7rem;
+    color: #888;
+    font-style: italic;
+    /* zlewają się z tłem */
+  }
+
+  .contact-form textarea { height: 60px; resize: none; }
+
+  .submit-btn {
+    background: #FF0000;
+    color: #FF0000; /* tekst w tym samym kolorze co tło – niewidoczny */
+    font-size: 1.1rem;
+    font-family: 'Oswald', sans-serif;
+    padding: 8px 20px;
+    border: 2px solid #880000;
+    cursor: pointer;
+    letter-spacing: 2px;
+    display: block;
+    margin-top: 6px;
+  }
+  .submit-btn:hover {
+    background: #CC0000;
+    color: #FF0000;
+  }
+
+  /* CENNIK strona */
+  .pricing-box {
+    background: #220033;
+    border: 2px solid #AA00AA;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  .pricing-box table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.82rem;
+  }
+  .pricing-box td, .pricing-box th {
+    border: 1px solid #440044;
+    padding: 4px 8px;
+    color: #DDD;
+  }
+  .pricing-box th {
+    background: #440066;
+    color: #CC99FF;
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 1px;
+  }
+  /* Ceny napisane słownie, różne jednostki, brak spójności */
+  .pricing-box .price-cell {
+    color: lime;
+    font-weight: bold;
+  }
+  .pricing-note {
+    font-size: 0.6rem;
+    color: #555;
+    margin-top: 6px;
+    line-height: 1.3;
+  }
+
+  /* FOOTER */
+  footer {
+    background: #000;
+    border-top: 4px solid lime;
+    padding: 15px 10px;
+    text-align: center;
+    font-size: 0.7rem;
+    color: #444;
+    line-height: 1.5;
+    margin-top: 10px;
+  }
+  footer a { color: #006600; text-decoration: none; }
+  footer .footer-logo {
+    font-family: 'Lobster', cursive;
+    font-size: 1.4rem;
+    color: #333;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .footer-requirements {
+    background: #111;
+    border: 1px solid #333;
+    color: #888;
+    padding: 15px 20px;
+    margin: 15px auto 0;
+    max-width: 860px;
+    text-align: left;
+    font-family: Arial, sans-serif;
+    font-size: 0.8rem;
+    line-height: 1.65;
+  }
+  .footer-requirements h4 {
+    color: #aaa;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+  .footer-requirements ul { padding-left: 1.1rem; list-style: disc; }
+  .footer-requirements li { margin-bottom: 3px; }
+
+  /* POPUP - mniej agresywny, ale irytujący */
+  .popup {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #CC0000;
+    color: #FFFF00;
+    padding: 12px 20px;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 3px solid yellow;
+    font-size: 0.9rem;
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 1px;
+  }
+  .popup p { animation: blink 1.2s infinite; }
+  .popup-close {
+    background: #000;
+    color: #880000; /* prawie niewidoczny */
+    border: 1px solid #333;
+    padding: 3px 6px;
+    cursor: pointer;
+    font-size: 0.65rem;
+    font-family: Arial, sans-serif;
+    /* schowany w rogu, mały */
+    flex-shrink: 0;
+    margin-left: 10px;
+    opacity: 0.4;
+  }
+
+  /* RANDOM BADGE */
+  .badge {
+    display: inline-block;
+    background: #FF6600;
+    color: #000;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.75rem;
+    padding: 2px 6px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-left: 5px;
+    vertical-align: middle;
+  }
+  .badge.new { background: lime; }
+  .badge.hot { background: #FF0000; color: #FFFF00; animation: blink 1s infinite; }
+</style>
+</head>
+<body>
+
+<!-- POPUP -->
+<div class="popup" id="popup">
+  <p>🍪 TA STRONA UŻYWA PLIKÓW COOKIES. KONTYNUUJĄC WYRAŻASZ ZGODĘ NA WSZYSTKO CO OPISANO W REGULAMINIE.</p>
+  <button class="popup-close" onclick="document.getElementById('popup').style.display='none'">zamknij</button>
+</div>
+
+<!-- HEADER -->
+<header>
+  <span class="logo">💻 SERWON 💻</span>
+  <span class="logo-sub">SERWIS KOMPUTEROWY • NAPRAWA LAPTOPÓW • POZNAŃ</span>
+</header>
+
+<!-- NAV -->
+<nav>
+  <a href="#uslugi">☛ USŁUGI</a>
+  <a href="#jakdzialamy">☛ JAK DZIAŁAMY</a>
+  <a href="#cennik">☛ CENNIK</a>
+  <a href="#opinie">☛ OPINIE</a>
+  <a href="#kontakt">☛ KONTAKT</a>
+  <a href="#kontakt" style="background:#FF0000; color:#FFFF00; border-color:#FF0000; animation: blink 0.9s infinite;">☎ ZADZWOŃ TERAZ</a>
+</nav>
+
+<!-- TICKER -->
+<div class="ticker">
+  <span class="ticker-inner">
+    ★ NAPRAWA KOMPUTERÓW ★ USUWANIE WIRUSÓW ★ REINSTALACJA WINDOWS ★ ODZYSKIWANIE DANYCH ★ SERWIS LAPTOPÓW ★ WYMIANA DYSKÓW ★ POZNAŃ ★ TANIO ★ SZYBKO ★ ZADZWOŃ ★ 601 234 567 ★
+  </span>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>NAJTAŃSZY SERWIS<br>KOMPUTEROWY W POZNANIU!!!</h1>
+  <p class="hero-promo">⚡ PROMOCJA: DIAGNOSTYKA GRATIS PRZY NAPRAWIE ⚡</p>
+  <a href="#kontakt" class="hero-btn">UMÓW WIZYTĘ TERAZ</a>
+  <a href="tel:601234567" class="hero-btn" style="background:#FFFF00;">ZADZWOŃ: 601 234 567</a>
+  <p class="fine-print">* Diagnostyka gratis dotyczy napraw powyżej 150 zł. Oferta nie łączy się z innymi promocjami. Szczegóły w regulaminie dostępnym na żądanie w siedzibie firmy w godz. pracy z wyłączeniem przerw, świąt oraz dni ustawowo wolnych od pracy.</p>
+</section>
+
+<!-- MAIN LAYOUT -->
+<div class="page-wrap">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-img-placeholder">🏆</div>
+
+    <div class="sidebar-box">
+      <h3>Zadowoleni klienci</h3>
+      <span class="counter" id="counter">1847</span>
+      <small style="font-size:0.65rem;">i ciągle rośnie!</small>
+    </div>
+
+    <div class="sidebar-box">
+      <h3>Godziny otwarcia</h3>
+      <p style="font-size:0.72rem; line-height:1.6;">
+        Pon: 10-18<br>
+        Wt: 9-17<br>
+        Śr: NIECZYNNE<br>
+        Czw: 10-18<br>
+        Pt: 9-16<br>
+        Sob: 10-13<br>
+        Nd: NIECZYNNE
+      </p>
+    </div>
+
+    <div class="sidebar-box">
+      <h3>Polecamy</h3>
+      <a href="#" class="sidebar-link">» Antywirusy</a>
+      <a href="#" class="sidebar-link">» Dyski SSD</a>
+      <a href="#" class="sidebar-link">» Klawiatury</a>
+      <a href="#" class="sidebar-link">» Porady</a>
+      <a href="#" class="sidebar-link">» FAQ</a>
+      <a href="#" class="sidebar-link">» O nas</a>
+      <a href="#" class="sidebar-link">» Regulamin</a>
+    </div>
+
+    <div class="sidebar-box" style="background:#330000; border-color:#FF0000;">
+      <h3 style="color:#FF6600;">Uwaga!</h3>
+      <p style="font-size:0.7rem; color:#FF9999;">Nie daj się oszukać nieuczciwym serwistom! Sprawdź opinie przed oddaniem sprzętu!</p>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main-content">
+
+    <!-- USŁUGI -->
+    <section id="uslugi">
+      <h2 class="section-title">☛ Nasze Usługi <span class="badge hot">POLECANE</span></h2>
+
+      <table class="services">
+        <tr>
+          <th>Usługa</th>
+          <th>Opis</th>
+          <th>Czas</th>
+          <th>Cena</th>
+        </tr>
+        <tr>
+          <td>Diagnostyka komputera</td>
+          <td>Sprawdzamy co jest nie tak ze sprzętem. Pełny raport.</td>
+          <td>1-2 dni</td>
+          <td class="price">od 50 zł</td>
+        </tr>
+        <tr>
+          <td>Usuwanie wirusów <span class="badge hot">HOT</span></td>
+          <td>Usuwamy wirusy, trojany, spyware, adware i inne złośliwe oprogramowanie. Pełne czyszczenie systemu.</td>
+          <td>1 dzień</td>
+          <td class="price">od 80 zł</td>
+        </tr>
+        <tr>
+          <td>Przyspieszenie komputera</td>
+          <td>Optymalizacja systemu, czyszczenie, usuwanie zbędnych programów startowych.</td>
+          <td>1 dzień</td>
+          <td class="price">od 70 zł</td>
+        </tr>
+        <tr>
+          <td>Reinstalacja Windows <span class="badge new">NEW</span></td>
+          <td>Czysta instalacja systemu Windows 10/11. Możliwość przeniesienia danych.</td>
+          <td>1-2 dni</td>
+          <td class="price">od 120 zł</td>
+        </tr>
+        <tr>
+          <td>Odzyskiwanie danych</td>
+          <td>Próba odzysk. danych z uszkodzonych dysków HDD/SSD. Skuteczność zależy od stopnia uszkodzenia.</td>
+          <td>2-5 dni</td>
+          <td class="price">od 150 zł</td>
+        </tr>
+        <tr>
+          <td>Wymiana dysku na SSD</td>
+          <td>Montaż nowego dysku SSD + migracja systemu i danych. Komputer śmiga jak nowy!</td>
+          <td>1 dzień</td>
+          <td class="price">od 80 zł + części</td>
+        </tr>
+        <tr>
+          <td>Wymiana baterii (laptop)</td>
+          <td>Montaż nowej baterii. Przywróć dawną żywotność swojego laptopa.</td>
+          <td>1 dzień</td>
+          <td class="price">od 60 zł + bateria</td>
+        </tr>
+        <tr>
+          <td>Konfiguracja sieci Wi-Fi</td>
+          <td>Konfiguracja routera, ustawianie sieci, rozwiązywanie problemów z internetem.</td>
+          <td>tego samego dnia</td>
+          <td class="price">od 60 zł</td>
+        </tr>
+        <tr>
+          <td>Instalacja drukarek</td>
+          <td>Instalacja i konfiguracja drukarek, skanerów i innych urządzeń peryferyjnych.</td>
+          <td>tego samego dnia</td>
+          <td class="price">od 50 zł</td>
+        </tr>
+      </table>
+    </section>
+
+    <!-- JAK DZIAŁAMY - kroki w złej kolejności wizualnie -->
+    <section id="jakdzialamy">
+      <h2 class="section-title">☛ Jak Działamy</h2>
+      <div class="steps-chaos">
+        <!-- Celowo numeracja nie zgadza się z pozycją w gridzie -->
+        <div class="step-item">
+          <h4>KROK 2 – Diagnostyka i wycena</h4>
+          <p>Sprawdzamy sprzęt i informujemy o kosztach. Naprawa rusza dopiero po Twojej zgodzie.</p>
+        </div>
+        <div class="step-item">
+          <h4>KROK 1 – Przynieś sprzęt</h4>
+          <p>Zanieś komputer lub laptop do naszego serwisu. Opisz problem jak najdokładniej.</p>
+        </div>
+        <div class="step-item">
+          <h4>KROK 4 – Odbiór</h4>
+          <p>Odbierasz gotowy sprzęt i płacisz. Wystawiamy paragon lub fakturę VAT.</p>
+        </div>
+        <div class="step-item">
+          <h4>KROK 3 – Naprawa</h4>
+          <p>Naprawiamy sprzęt. W razie problemów dzwonimy do Ciebie.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CENNIK -->
+    <section id="cennik">
+      <h2 class="section-title">☛ Cennik <span class="badge">2025</span></h2>
+      <div class="pricing-box">
+        <table>
+          <tr>
+            <th>USŁUGA</th>
+            <th>CENA NETTO</th>
+            <th>CENA BRUTTO</th>
+            <th>UWAGI</th>
+          </tr>
+          <tr>
+            <td>Diagnostyka</td>
+            <td class="price-cell">czterdzieści jeden zł</td>
+            <td class="price-cell">50 zł</td>
+            <td>wliczana w koszt naprawy</td>
+          </tr>
+          <tr>
+            <td>Usuwanie wirusów</td>
+            <td class="price-cell">65,04 zł</td>
+            <td class="price-cell">od 80 zł</td>
+            <td>zależy od stopnia zainfekowania systemu operacyjnego i ilości złośliwego oprogramowania</td>
+          </tr>
+          <tr>
+            <td>Przyspieszenie</td>
+            <td class="price-cell">56,91 zł</td>
+            <td class="price-cell">70 PLN</td>
+            <td>–</td>
+          </tr>
+          <tr>
+            <td>Reinstalacja systemu</td>
+            <td class="price-cell">97,56 zł</td>
+            <td class="price-cell">sto dwadzieścia zł</td>
+            <td>bez przeniesienia danych / z przeniesieniem danych +40 zł</td>
+          </tr>
+          <tr>
+            <td>Odzysk danych</td>
+            <td class="price-cell">121,95 zł</td>
+            <td class="price-cell">od 150 zł</td>
+            <td>cena ostateczna ustalana po diagnostyce; brak gwarancji odzysku</td>
+          </tr>
+        </table>
+        <p class="pricing-note">* Podane ceny są cenami orientacyjnymi i mogą ulec zmianie bez wcześniejszego powiadomienia. Ceny netto obliczone przy stawce VAT 23%. Firma nie odpowiada za rozbieżności wynikające z błędów typograficznych na stronie. Ostateczna cena ustalana jest każdorazowo na podstawie indywidualnej wyceny po przeprowadzeniu diagnostyki przez uprawnionego pracownika serwisu. Cennik obowiązuje od dnia 01.03.2025 r. do odwołania.</p>
+      </div>
+    </section>
+
+    <!-- OPINIE -->
+    <section id="opinie">
+      <h2 class="section-title">☛ Opinie Klientów</h2>
+      <div class="testimonials">
+        <div class="testimonial">
+          <span class="stars">★★★★★</span> "Polecam! Szybko i tanio naprawili mi laptopa po zalaniu. Myślałem że przepadło a tu proszę działa :)"
+          <span class="author">– Marek K., Poznań (2025-03-14)</span>
+        </div>
+        <div class="testimonial">
+          <span class="stars">★★★★★</span> "Super serwis, oddałem komputer zawirusowany a dostałem z powrotem jak nowy. Cena bardzo uczciwa."
+          <span class="author">– Beata W. (2025-01-27)</span>
+        </div>
+        <div class="testimonial">
+          <span class="stars">★★★★☆</span> "Dobry kontakt, szybka realizacja. Jedyna uwaga to czas oczekiwania był trochę dłuższy niż podano ale efekt super."
+          <span class="author">– Tomasz S. (2024-12-09)</span>
+        </div>
+        <div class="testimonial">
+          <span class="stars">★★★★★</span> "Oddałam stary laptop myśląc że do śmietnika a teraz śmiga jak nowy po wymianie dysku na SSD. Rewelacja!"
+          <span class="author">– Anna P. (2025-04-02)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- KONTAKT -->
+    <section id="kontakt">
+      <h2 class="section-title">☛ Kontakt i Umówienie Wizyty</h2>
+      <div style="display:flex; gap:12px; flex-wrap:wrap; margin-bottom:15px;">
+        <div style="background:#003300; border:2px solid lime; padding:10px; font-size:0.82rem; color:#cfc; flex:1; min-width:160px;">
+          <p style="color:lime; font-family:'Oswald',sans-serif; letter-spacing:1px; margin-bottom:6px;">📍 ADRES</p>
+          <p>ul. Technologiczna 12<br>60-001 Poznań</p>
+        </div>
+        <div style="background:#003300; border:2px solid lime; padding:10px; font-size:0.82rem; color:#cfc; flex:1; min-width:160px;">
+          <p style="color:lime; font-family:'Oswald',sans-serif; letter-spacing:1px; margin-bottom:6px;">📞 TELEFON</p>
+          <p><a href="tel:601234567" style="color:#FFFF00;">601 234 567</a><br><small style="font-size:0.7rem; color:#888;">(w godz. pracy)</small></p>
+        </div>
+        <div style="background:#003300; border:2px solid lime; padding:10px; font-size:0.82rem; color:#cfc; flex:1; min-width:160px;">
+          <p style="color:lime; font-family:'Oswald',sans-serif; letter-spacing:1px; margin-bottom:6px;">✉ EMAIL</p>
+          <p><a href="mailto:kontakt@serwon.pl" style="color:#FFFF00;">kontakt@serwon.pl</a></p>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <h3>📝 WYŚLIJ WIADOMOŚĆ</h3>
+        <span class="flabel">Imię i nazwisko:</span>
+        <input type="text" placeholder="wpisz tutaj..."/>
+        <span class="flabel">Adres email:</span>
+        <input type="email" placeholder="wpisz tutaj..."/>
+        <span class="flabel">Telefon:</span>
+        <input type="tel" placeholder="wpisz tutaj..."/>
+        <span class="flabel">Opis problemu:</span>
+        <textarea placeholder="opisz problem..."></textarea>
+        <button class="submit-btn" type="submit">WYŚLIJ WIADOMOŚĆ</button>
+        <!-- Przycisk ma niewidoczny tekst – kolor identyczny z tłem -->
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo">SERWON</span>
+  <p>© 2025 Serwon – Serwis Komputerowy Poznań. Wszelkie prawa zastrzeżone.</p>
+  <p>NIP: 123-456-78-90 | ul. Technologiczna 12, 60-001 Poznań | tel. 601 234 567</p>
+  <p><a href="#">Regulamin</a> | <a href="#">Polityka prywatności</a> | <a href="#">Mapa strony</a> | <a href="#">Rodo</a></p>
+  </footer>
+
+<script>
+  // Licznik rosnący losowo – brak transparentności
+  let c = 1847;
+  setInterval(() => {
+    if (Math.random() > 0.7) {
+      c++;
+      const el = document.getElementById('counter');
+      if (el) el.textContent = c;
+    }
+  }, 4000);
+</script>
+
+</body>
+</html>
